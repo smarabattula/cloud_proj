@@ -1,0 +1,30 @@
+# Services
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-kubes-proj-svc
+spec:
+  type: LoadBalancer
+  selector:
+    app: flask-kubes-proj
+  ports:
+    - protocol: "TCP"
+      port: 8000
+      targetPort: 5000
+---
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: flask-kubes-proj-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: flask-kubes-proj-deploy
+  minReplicas: 1
+  maxReplicas: 5
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        targetAverageUtilization: 80

@@ -1,0 +1,24 @@
+# deployment.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-kubes-proj-deploy
+  labels:
+    type: restapi
+spec:
+  selector:
+    matchLabels:
+      app: flask-kubes-proj
+  replicas: 3
+  template:
+    metadata:
+      name: flask-kubes-proj-tmpl
+      labels:
+        app: flask-kubes-proj
+    spec:
+      containers:
+        - name: flask-kubes-proj
+          image: flask-kubes-proj:latest
+          ports:
+            - containerPort: 5000
