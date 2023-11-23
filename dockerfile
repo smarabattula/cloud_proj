@@ -1,6 +1,6 @@
 # Dockerfile
-
-FROM python:3.8-slim-buster
+# FROm python:3.9
+FROM python:slim-buster
 
 WORKDIR /app
 
