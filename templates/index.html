@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Text-to-Image Generator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy2F02CgCeD9tL5i6G4tW8lZu6tUzj"
+          crossorigin="anonymous">
+</head>
+<body style="font-family: 'Helvetica', sans-serif; background: linear-gradient(45deg, #3498db, #e74c3c); color: #888; transition: background 0.5s ease-in-out;">
+
+<div class="container mt-5" style="background: rgba(150, 255, 255, 0.9); border-radius: 10px; padding: 20px; margin-top: 50px; transition: background 0.5s ease-in-out;">
+    <h1 class="mb-4">Text-to-Image Generator</h1>
+    <form action="/generate" method="post">
+        <div class="form-group">
+            <label for="inputText" style="color: #333;">Enter Text:</label>
+            <textarea class="form-control" id="inputText" name="inputText" rows="4" style="border: 1px solid #ccc; transition: border-color 0.5s ease-in-out;" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="transition: background 0.5s ease-in-out;">Generate Image</button>
+    </form>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-rAe9sswDNltUViWN9K1a5Z5AIsI9V5l9rF/6bBuksqZ3S+7+/PmLE3a/x2M" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy2F02CgCeD9tL5i6G4tW8lZu6tUzj" crossorigin="anonymous"></script>
+
+</body>
+</html>
