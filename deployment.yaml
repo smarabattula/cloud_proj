@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: flask-kubes-proj
-          image: flask-kubes-proj:latest
+          image: sasank/flask-kubes-proj:local
           imagePullPolicy: Always
           ports:
             - containerPort: 5000
