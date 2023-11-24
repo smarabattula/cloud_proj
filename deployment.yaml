@@ -1,44 +1,24 @@
-# deployment.yaml
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flask-kubes-proj
-  labels:
-#    type: restapi
+  name: flask-app
 spec:
+  replicas: 2  # Adjust the number of replicas as needed
   selector:
     matchLabels:
-      app: flask-kubes-proj
-  replicas: 2
+      app: flask-app  # Change the label from "run" to "app"
   template:
     metadata:
-#      name: flask-kubes-proj-tmpl
       labels:
-        app: flask-kubes-proj
+        app: flask-app  # Change the label from "run" to "app"
     spec:
       containers:
-        - name: flask-kubes-proj
-          image: sasank/flask-kubes-proj:local
-          imagePullPolicy: Always
-          ports:
-            - containerPort: 8000
-          resources:
-            limits:
-              cpu: 500m
-            requests:
-              cpu: 200m
----
-# Services
-apiVersion: v1
-kind: Service
-metadata:
-  name: flask-kubes-proj
-spec:
-  type: LoadBalancer
-  selector:
-    app: flask-kubes-proj
-  ports:
-    - protocol: "TCP"
-      port: 8000
-      targetPort: 5000
+      - name: flask-app
+        image: smaraba/flask-kubes-proj:latest  # Updated image name
+        ports:
+        - containerPort: 5000 # Port on which docker container listens on
+        resources:
+          limits:
+            cpu: 500m
+          requests:
+            cpu: 200m

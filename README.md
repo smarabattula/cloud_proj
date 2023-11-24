@@ -39,3 +39,4 @@ Using Python Flask app for a skeletal Text-to-image generator app.
 
 7. Load test it using Locust or another load generating script!
 
+
