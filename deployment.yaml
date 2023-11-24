@@ -3,17 +3,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flask-kubes-proj-deploy
+  name: flask-kubes-proj
   labels:
-    type: restapi
+#    type: restapi
 spec:
   selector:
     matchLabels:
       app: flask-kubes-proj
-  replicas: 3
+  replicas: 2
   template:
     metadata:
-      name: flask-kubes-proj-tmpl
+#      name: flask-kubes-proj-tmpl
       labels:
         app: flask-kubes-proj
     spec:
@@ -23,3 +23,22 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 5000
+          resources:
+            limits:
+              cpu: 500m
+            requests:
+              cpu: 200m
+---
+# Services
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-kubes-proj
+spec:
+  type: LoadBalancer
+  selector:
+    app: flask-kubes-proj
+  ports:
+    - protocol: "TCP"
+      port: 8000
+      targetPort: 5000
