@@ -20,5 +20,6 @@ spec:
       containers:
         - name: flask-kubes-proj
           image: flask-kubes-proj:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 5000
