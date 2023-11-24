@@ -22,7 +22,7 @@ spec:
           image: sasank/flask-kubes-proj:local
           imagePullPolicy: Always
           ports:
-            - containerPort: 5000
+            - containerPort: 8000
           resources:
             limits:
               cpu: 500m
